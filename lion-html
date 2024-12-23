@@ -1,0 +1,172 @@
+[٧:٢٤ م, ٢٢‏/٦‏/١٤٤٦ هـ] Jana: <!DOCTYPE html>
+<html lang="ar">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>الأسد والنمر - صراع العروش</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background-color: #f0f0f0;
+        }
+        h1 {
+            color: #333;
+        }
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <h1>الأسد والنمر - صراع العروش</h1>
+    <p>العب لعبة "الأسد والنمر" وابذل قصارى جهدك للجلوس على العرش الحديدي!</p>
+    <h2>المرحلة 1</h2>
+    <p>اختر فريقك: </p>
+    <button onclick="selectTeam('أسد')">الأسد</button>
+    <button onclick="selectTeam('نمر')">النمر</button>
+
+    <div id="questions" style="display:none;">
+        <h2>السؤال الأول: </h2>
+        <p>ما هو العش؟</p>
+        <button onclick="answerQuestion('عش')">عصفور</button>
+        <button onclick="answerQuestion('عجل')">سيارة</button>
+    </div>
+
+    <div id="result" style="display:none;">
+        <h2>نتيجتك:</h2>
+        <p id="finalResult"></p>
+        <button onclick="restartGame()">إعادة اللعب</button>
+    </div>
+
+    <script>
+        let player = {
+            team: "",
+            score: 0
+        };
+
+        function selectTeam(team) {
+            player.team = team;
+            document.querySelector('h2').textContent = "المرحلة 1 - اختر الإجابة الصحيحة";
+            document.getElementById('questions').style.display = 'block';
+        }
+
+        function answerQuestion(answer) {
+            if (answer === "عصفور") {
+                player.score += 1;
+                alert("إجابة صحيحة! تابع إلى المرحلة التالية.");
+            } else {
+                alert("إجابة خاطئة! حاول مرة أخرى.");
+            }
+            showResult();
+        }
+
+        function showResult() {
+            document.getElementById('questions').style.display = 'none';
+            document.getElementById('result').style.display = 'block';
+
+            let resultText = player.score === 1 ? أنت بطل! فزت بالعرش الحديدي. : للأسف لم تفز، حاول مرة أخرى!;
+            document.getElementById('finalResult').textContent = resultText;
+        }
+
+        function restartGame() {
+            player.score = 0;
+            document.getElementById('result').style.display = 'none';
+            document.querySelector('h2').textContent = "المرحلة 1";
+        }
+    </script>
+</body>
+</html>
+[٨:١٣ م, ٢٢‏/٦‏/١٤٤٦ هـ] Jana: <!DOCTYPE html>
+<html lang="ar">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>الأسد والنمر - صراع العروش</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background-color: #f0f0f0;
+        }
+        h1 {
+            color: #333;
+        }
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <h1>الأسد والنمر - صراع العروش</h1>
+    <p>العب لعبة "الأسد والنمر" وابذل قصارى جهدك للجلوس على العرش الحديدي!</p>
+    <h2>المرحلة 1</h2>
+    <p>اختر فريقك: </p>
+    <button id="lionButton">الأسد</button>
+    <button id="tigerButton">النمر</button>
+
+    <div id="questions" style="display:none;">
+        <h2>السؤال الأول: </h2>
+        <p>ما هو العش؟</p>
+        <button onclick="answerQuestion('عصفور')">عصفور</button>
+        <button onclick="answerQuestion('عجل')">سيارة</button>
+    </div>
+
+    <div id="result" style="display:none;">
+        <h2>نتيجتك:</h2>
+        <p id="finalResult"></p>
+        <button onclick="restartGame()">إعادة اللعب</button>
+    </div>
+
+    <script>
+        let player = {
+            team: "",
+            score: 0
+        };
+
+        // تفعيل الزر للأسد
+        document.getElementById('lionButton').addEventListener('click', function() {
+            selectTeam('أسد');
+        });
+
+        // تفعيل الزر للنمر
+        document.getElementById('tigerButton').addEventListener('click', function() {
+            selectTeam('نمر');
+        });
+
+        function selectTeam(team) {
+            player.team = team;
+            document.querySelector('h2').textContent = "المرحلة 1 - اختر الإجابة الصحيحة";
+            document.getElementById('questions').style.display = 'block';
+        }
+
+        function answerQuestion(answer) {
+            if (answer === "عصفور") {
+                player.score += 1;
+                alert("إجابة صحيحة! تابع إلى المرحلة التالية.");
+            } else {
+                alert("إجابة خاطئة! حاول مرة أخرى.");
+            }
+            showResult();
+        }
+
+        function showResult() {
+            document.getElementById('questions').style.display = 'none';
+            document.getElementById('result').style.display = 'block';
+
+            let resultText = player.score === 1 ? أنت بطل! فزت بالعرش الحديدي. : للأسف لم تفز، حاول مرة أخرى!;
+            document.getElementById('finalResult').textContent = resultText;
+        }
+
+        function restartGame() {
+            player.score = 0;
+            document.getElementById('result').style.display = 'none';
+            document.querySelector('h2').textContent = "المرحلة 1";
+        }
+    </script>
+</body>
+</html>
